@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config">
+    <Properties>
+        <Property name="basePath"></Property>
+    </Properties>
+
+    <Appenders>
+     <!--   <File name="FILE" fileName="${basePath}/logger.txt" append="true">
+            <PatternLayout pattern="%-5p %d{yyyy-MM-dd HH:mm:ss} [%t] %C (%F:%L) - %m%n" />
+        </File>-->
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%-5p %d{yyyy-MM-dd HH:mm:ss} [%t] %C (%F:%L) - %m%n" />
+        </Console>
+    </Appenders>
+
+ <!--   <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">
+        <connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
+            <driverClass>org.sqlite.JDBC</driverClass>
+            <url>jdbc:sqlite:For_logging</url>
+        </connectionSource>
+        <Column name="LVL" pattern="%-5p"/>
+        <Column name="TIME_DATE" pattern="%d{yyyy-MM-dd HH:mm:ss}"/>
+        <Column name="METOD_NAME" pattern="[%t]"/>
+        <Column name="CLASS_NAME" pattern="%C"/>
+        <Column name="INSTRING" pattern="(%F:%L)"/>
+        <Column name="MSG" pattern="%m%n"/>
+    </appender>-->
+    
+    <Loggers>
+        <Logger name="arr" level="debug" />
+        <Root level="info">
+               <AppenderRef ref="STDOUT" />
+            <AppenderRef ref="FILE" />
+         <!--   <AppenderRef ref="DB" />-->
+        </Root>
+    </Loggers>
+</Configuration>
