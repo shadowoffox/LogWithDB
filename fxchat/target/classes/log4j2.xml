@@ -16,21 +16,22 @@
     <JDBC name="DB" tableName="logging">
         <connectionFactory class="ConnectionFactory" method="getConnection">
         </connectionFactory>
-        <Column name="LVL" pattern="%-5p" isUnicode = "false"/>
-       <!-- <Column name="TIME_DATE" isEventTimestamp="true"/>-->
+        <!--<Column name="LVL" pattern="%-5p" isUnicode = "false"/>-->
+        <Column name="TIME_DATE" isEventTimestamp="true"/>
         <!--<Column name="METOD_NAME" pattern="[%t]"/>-->
         <!--<Column name="CLASS_NAME" pattern="%C"/>-->
         <!--<Column name="INSTRING" pattern="(%F:%L)"/>-->
-        <Column name="MSG" pattern="%m%n" isUnicode = "false"/>
+        <!--<Column name="MSG" pattern="%m" isUnicode = "false"/>-->
     </JDBC>
     </Appenders>
 
     <Loggers>
         <Logger name="arr" level="debug" />
         <Root level="info">
-               <AppenderRef ref="STDOUT" />
+
             <AppenderRef ref="FILE" />
             <AppenderRef ref="DB" />
+            <AppenderRef ref="STDOUT" />
         </Root>
     </Loggers>
 </Configuration>
